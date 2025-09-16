@@ -4,3 +4,8 @@ scikit-learn
 matplotlib
 joblib
 numpy
+streamlit
+pandas
+matplotlib
+transformers
+torch
