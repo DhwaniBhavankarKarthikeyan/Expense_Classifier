@@ -1,114 +1,173 @@
-
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
+import joblib
 import os
-from src.utils import load_csv, ensure_models_dir
-from src import classifier, anomaly, forecast, chatbot
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.ensemble import IsolationForest
+from sklearn.linear_model import LinearRegression
+from datetime import datetime
 
-ensure_models_dir()
+# --------------------------
+# Utility Functions
+# --------------------------
 
-st.set_page_config(page_title="Expense Classifier v2", layout="wide")
-st.title("Expense Classifier v2 - AIML Student Project Demo")
+def train_models():
+    data = pd.read_csv("data/sample_transactions_labeled.csv")
+    X = data["Description"]
+    y = data["Category"]
 
-menu = st.sidebar.selectbox("Choose action", ["About", "Train Models (once)", "Upload & Classify", "Visualize & Detect Anomalies", "Forecast", "Chatbot"])
+    # Text Vectorization
+    vectorizer = TfidfVectorizer()
+    X_vec = vectorizer.fit_transform(X)
 
-DATA_PATH = os.path.join("data","sample_transactions_labeled.csv")
+    # Classifier
+    clf = LogisticRegression(max_iter=1000)
+    clf.fit(X_vec, y)
 
-if menu == "About":
-    st.markdown("""
-    **This enhanced demo includes:**
-    - ML-based classifier (TF-IDF + Logistic Regression)
-    - Anomaly detector (IsolationForest)
-    - Simple monthly forecasting (Linear Regression)
-    - Lightweight chatbot-like Q&A over your data
+    # Save models
+    os.makedirs("models", exist_ok=True)
+    joblib.dump(vectorizer, "models/vectorizer.pkl")
+    joblib.dump(clf, "models/classifier.pkl")
 
-    **Instructions**
-    1. If first time: go to 'Train Models (once)' and click Train.
-    2. Then go to 'Upload & Classify' to upload your transactions CSV and classify.
-    3. Use Visualize to see charts and anomalies.
-    4. Use Forecast to see next month prediction.
-    """)
+    # Anomaly Detector (trained only on Amounts)
+    iso = IsolationForest(contamination=0.1, random_state=42)
+    iso.fit(data[["Amount"]])
+    joblib.dump(iso, "models/anomaly.pkl")
 
-if menu == "Train Models (once)":
-    st.header("Train models using included labeled dataset")
-    st.write(f"Training data path: {DATA_PATH}")
+    st.success("✅ Models trained and saved!")
+
+def load_models():
+    vectorizer = joblib.load("models/vectorizer.pkl")
+    clf = joblib.load("models/classifier.pkl")
+    iso = joblib.load("models/anomaly.pkl")
+    return vectorizer, clf, iso
+
+def classify_data(df, vectorizer, clf):
+    X_new = vectorizer.transform(df["Description"])
+    df["PredictedCategory"] = clf.predict(X_new)
+    return df
+
+def detect_anomalies(df, iso):
+    df["Anomaly"] = iso.predict(df[["Amount"]])
+    df["Anomaly"] = df["Anomaly"].map({1: "Normal", -1: "Suspicious"})
+    return df
+
+def forecast_expenses(df):
+    df["Date"] = pd.to_datetime(df["Date"])
+    df["Month"] = df["Date"].dt.to_period("M").astype(str)
+    monthly = df.groupby("Month")["Amount"].sum().reset_index()
+
+    monthly["t"] = range(len(monthly))
+    X = monthly[["t"]]
+    y = monthly["Amount"]
+
+    model = LinearRegression()
+    model.fit(X, y)
+
+    next_t = [[len(monthly)]]
+    forecast = model.predict(next_t)[0]
+
+    return monthly, forecast
+
+def chatbot_query(df, query):
+    query = query.lower()
+    response = "Sorry, I couldn’t understand the question."
+
+    if "total" in query or "overall" in query:
+        response = f"Your total spending is {df['Amount'].sum():.2f}."
+    elif "food" in query:
+        total = df[df["PredictedCategory"] == "Food"]["Amount"].sum()
+        response = f"Your spending on Food is {total:.2f}."
+    elif "last month" in query:
+        df["Date"] = pd.to_datetime(df["Date"])
+        last_month = df["Date"].dt.to_period("M").max()
+        total = df[df["Date"].dt.to_period("M") == last_month]["Amount"].sum()
+        response = f"Your spending in {last_month} was {total:.2f}."
+    elif "top" in query and "category" in query:
+        top_cat = df.groupby("PredictedCategory")["Amount"].sum().idxmax()
+        response = f"Your top spending category is {top_cat}."
+
+    return response
+
+# --------------------------
+# Streamlit App
+# --------------------------
+
+st.set_page_config(page_title="AI FinTech Expense Classifier", layout="wide")
+st.title("💸 AI FinTech Expense Classifier")
+
+# Sidebar CSV Upload (shared)
+uploaded_file = st.sidebar.file_uploader("Upload your transactions CSV", type=["csv"])
+if uploaded_file is not None:
+    st.session_state["uploaded_data"] = pd.read_csv(uploaded_file)
+
+# Tabs
+tab1, tab2, tab3, tab4, tab5 = st.tabs(
+    ["📚 Train Models", "🧾 Classify Transactions", "📊 Visualization & Anomalies", "📈 Forecast", "🤖 Chatbot"]
+)
+
+# --- Train Models ---
+with tab1:
+    st.header("📚 Train Models")
     if st.button("Train classifier and anomaly detector"):
-        with st.spinner("Training classifier..."):
-            report = classifier.train_and_save_model(DATA_PATH)
-            st.success("Classifier trained and saved.")
-            st.json(report)
-        with st.spinner("Training anomaly detector..."):
-            df = pd.read_csv(DATA_PATH)
-            anomaly.train_anomaly(df)
-            st.success("Anomaly detector trained and saved.")
+        train_models()
 
-if menu == "Upload & Classify":
-    st.header("Upload transactions CSV (Date,Description,Amount)")
-    uploaded = st.file_uploader("Upload CSV file", type=['csv'])
-    if uploaded is not None:
-        df = load_csv(uploaded)
-        st.subheader("Raw data")
-        st.dataframe(df.head(200))
-        if st.button("Classify uploaded data"):
-            try:
-                dfc = classifier.predict_categories(df)
-                st.success("Data classified.")
-                st.dataframe(dfc.head(200))
-                st.download_button("Download classified CSV", data=dfc.to_csv(index=False), file_name='classified_transactions.csv')
-            except Exception as e:
-                st.error(str(e))
-                st.info("Train the model first via 'Train Models (once)'.")
-
-if menu == "Visualize & Detect Anomalies":
-    st.header("Visualize classified data and detect anomalies")
-    uploaded = st.file_uploader("Upload classified CSV (or raw CSV)", type=['csv'], key='viz')
-    if uploaded is not None:
-        df = load_csv(uploaded)
-        if 'Category' not in df.columns:
-            st.info("Data is not categorized. You can classify it in 'Upload & Classify'. Proceeding with raw data.")
-        st.subheader("Summary")
-        st.write(df.describe(include='all'))
-        # Pie chart if categorized
-        if 'Category' in df.columns:
-            cat_counts = df.groupby('Category')['Amount'].sum().sort_values(ascending=False)
-            fig1, ax1 = plt.subplots()
-            ax1.pie(cat_counts, labels=cat_counts.index, autopct='%1.1f%%', startangle=90)
-            ax1.axis('equal')
-            st.pyplot(fig1)
-        # Anomaly detection
-        if st.button("Detect anomalies (requires trained anomaly model)"):
-            try:
-                dfa = anomaly.detect(df)
-                st.write("Anomalies flagged as True:")
-                st.dataframe(dfa[dfa['anomaly_flag']==True])
-            except Exception as e:
-                st.error(str(e))
-                st.info("Train the anomaly model first via 'Train Models (once)'.")
-
-if menu == "Forecast":
-    st.header("Monthly expense forecasting (simple linear regression)")
-    uploaded = st.file_uploader("Upload CSV for forecasting (Date,Amount)", type=['csv'], key='forecast')
-    if uploaded is not None:
-        df = load_csv(uploaded)
-        res = forecast.forecast_next_month(df)
-        if res is None:
-            st.info("Not enough history to forecast (need at least 3 months). Showing history only.")
+# --- Classify Transactions ---
+with tab2:
+    st.header("🧾 Classify Transactions")
+    if "uploaded_data" in st.session_state:
+        df = st.session_state["uploaded_data"].copy()
+        try:
+            vectorizer, clf, iso = load_models()
+            df = classify_data(df, vectorizer, clf)
             st.dataframe(df.head())
-        else:
-            st.subheader("Forecast result")
-            st.write(f"Predicted next month total expense: {res['predicted_next_month_amount']:.2f}")
-            st.subheader("History (monthly totals)")
-            st.dataframe(res['history'])
+            st.session_state["classified_data"] = df
+        except:
+            st.error("Please train the models first in Tab 1.")
+    else:
+        st.warning("Please upload a CSV file in the sidebar.")
 
-if menu == "Chatbot":
-    st.header("Lightweight Q&A over your transactions")
-    uploaded = st.file_uploader("Upload classified CSV (recommended)", type=['csv'], key='chatbot')
-    question = st.text_input("Ask a question (examples: 'How much did I spend last month?', 'How much spent on Food?')")
-    if uploaded is not None and question:
-        df = load_csv(uploaded)
-        ans = chatbot.answer_question(df, question)
-        st.write(ans)
-    elif question:
-        st.info("Upload your CSV so the chatbot can answer from your data.")
+# --- Visualization & Anomalies ---
+with tab3:
+    st.header("📊 Visualization & Anomaly Detection")
+    if "classified_data" in st.session_state:
+        df = st.session_state["classified_data"].copy()
+        vectorizer, clf, iso = load_models()
+        df = detect_anomalies(df, iso)
 
+        # Pie Chart
+        fig, ax = plt.subplots()
+        df["PredictedCategory"].value_counts().plot.pie(autopct="%1.1f%%", ax=ax)
+        st.pyplot(fig)
+
+        # Show anomalies
+        st.subheader("🚨 Suspicious Transactions")
+        st.dataframe(df[df["Anomaly"] == "Suspicious"])
+    else:
+        st.warning("Please classify your data in Tab 2 first.")
+
+# --- Forecast ---
+with tab4:
+    st.header("📈 Expense Forecast")
+    if "classified_data" in st.session_state:
+        df = st.session_state["classified_data"].copy()
+        monthly, forecast = forecast_expenses(df)
+
+        st.line_chart(monthly.set_index("Month")["Amount"])
+        st.success(f"Predicted spending for next month: {forecast:.2f}")
+    else:
+        st.warning("Please classify your data in Tab 2 first.")
+
+# --- Chatbot ---
+with tab5:
+    st.header("🤖 Finance Chatbot")
+    if "classified_data" in st.session_state:
+        df = st.session_state["classified_data"].copy()
+        query = st.text_input("Ask me about your expenses:")
+        if st.button("Ask"):
+            answer = chatbot_query(df, query)
+            st.write("💬", answer)
+    else:
+        st.warning("Please classify your data in Tab 2 first.")
