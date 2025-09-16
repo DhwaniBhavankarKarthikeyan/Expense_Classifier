@@ -1,0 +1,801 @@
+Date,Description,Amount,Category
+2025-08-21,Big Bazaar groceries,3401,Shopping
+2024-03-24,Metro recharge,2718,Transport
+2024-01-13,McDonalds order,1042,Food
+2025-01-19,McDonalds order,636,Food
+2024-01-08,Big Bazaar groceries,1563,Shopping
+2025-07-20,McDonalds order,635,Food
+2025-06-11,Fuel station,845,Transport
+2025-01-13,Hotel booking,18439,Travel
+2024-10-19,Food delivery,1353,Food
+2025-04-22,Flipkart order,5043,Shopping
+2024-12-23,Internet bill,2659,Bills
+2024-05-05,Auto fare,517,Transport
+2024-08-17,Taxi fare,208,Transport
+2024-07-31,Amazon purchase,5314,Shopping
+2025-04-23,Train ticket,14320,Travel
+2025-05-27,Hotel booking,10872,Travel
+2025-01-29,Fuel station,1095,Transport
+2025-05-25,Gaming purchase,1784,Entertainment
+2024-06-30,Flipkart order,4730,Shopping
+2025-01-08,Amazon purchase,3986,Shopping
+2025-08-03,Taxi fare,810,Transport
+2025-07-12,McDonalds order,723,Food
+2024-05-09,Flipkart order,6579,Shopping
+2024-07-14,Big Bazaar groceries,2420,Shopping
+2025-07-16,Electricity bill,4334,Bills
+2024-02-01,Flight booking,557,Travel
+2025-04-28,Flight booking,6589,Travel
+2024-10-05,Train ticket,6784,Travel
+2024-04-13,Cafe latte,532,Food
+2025-05-01,Streaming subscription,2837,Entertainment
+2024-05-09,Electricity bill,5440,Bills
+2024-09-25,McDonalds order,340,Food
+2024-12-03,McDonalds order,921,Food
+2024-08-18,Phone bill,7269,Bills
+2025-06-26,Movie ticket,75,Entertainment
+2025-06-16,Streaming subscription,212,Entertainment
+2024-06-03,Amazon purchase,500,Shopping
+2024-07-19,Train ticket,18419,Travel
+2025-02-11,McDonalds order,51,Food
+2024-01-06,Phone bill,6352,Bills
+2024-11-07,Train ticket,8211,Travel
+2025-05-05,Fuel station,1033,Transport
+2025-06-07,Mall purchase,5690,Shopping
+2025-04-06,Amazon purchase,283,Shopping
+2024-06-03,Train ticket,17410,Travel
+2024-11-25,Mall purchase,4557,Shopping
+2025-04-28,Flipkart order,2275,Shopping
+2024-02-08,Metro recharge,1572,Transport
+2024-12-15,Big Bazaar groceries,4275,Shopping
+2024-04-30,Streaming subscription,2270,Entertainment
+2025-02-25,Amazon purchase,5425,Shopping
+2025-04-21,Auto fare,2062,Transport
+2024-08-03,Bus ticket,14731,Travel
+2025-02-23,Electricity bill,1665,Bills
+2025-08-12,Grocery store,2756,Shopping
+2025-01-15,Phone bill,7985,Bills
+2024-01-08,Train ticket,15555,Travel
+2024-09-20,Dominos pizza,548,Food
+2025-01-06,Concert,1882,Entertainment
+2025-04-08,Electricity bill,4199,Bills
+2024-04-06,McDonalds order,1151,Food
+2025-05-17,Taxi fare,792,Transport
+2024-12-21,Taxi fare,2237,Transport
+2025-08-07,Hotel booking,14882,Travel
+2024-01-29,Amazon purchase,5065,Shopping
+2024-03-12,Streaming subscription,927,Entertainment
+2025-08-01,Dominos pizza,248,Food
+2025-05-15,Streaming subscription,781,Entertainment
+2024-02-29,Train ticket,10641,Travel
+2025-07-10,Gaming purchase,2189,Entertainment
+2024-11-02,Train ticket,18619,Travel
+2025-06-05,Electricity bill,3805,Bills
+2024-01-28,Internet bill,2373,Bills
+2025-06-17,Big Bazaar groceries,1089,Shopping
+2025-06-25,Grocery store,2163,Shopping
+2025-05-26,Gas bill,4861,Bills
+2024-06-04,Internet bill,2856,Bills
+2024-09-05,Flight booking,8324,Travel
+2025-02-08,McDonalds order,875,Food
+2024-10-10,Train ticket,10453,Travel
+2025-04-11,Bus ticket,7335,Travel
+2025-02-20,Flight booking,6241,Travel
+2025-05-28,Auto fare,1983,Transport
+2024-01-04,Internet bill,5952,Bills
+2024-12-28,Internet bill,6119,Bills
+2024-08-01,Hotel booking,2168,Travel
+2024-05-26,Gas bill,6066,Bills
+2025-07-29,Food delivery,1180,Food
+2025-03-27,Streaming subscription,1128,Entertainment
+2024-03-25,Donation,4323,Others
+2024-07-18,Big Bazaar groceries,1602,Shopping
+2025-04-06,Grocery store,4496,Shopping
+2025-08-20,Grocery store,2621,Shopping
+2024-01-27,Flipkart order,6531,Shopping
+2024-08-16,Water bill,5548,Bills
+2025-01-23,Grocery store,534,Shopping
+2024-08-20,Restaurant bill,132,Food
+2025-01-30,Unknown vendor,2663,Others
+2025-04-05,Train ticket,11641,Travel
+2024-07-22,Uber ride,728,Travel
+2024-03-31,Hotel booking,10177,Travel
+2025-07-20,Electricity bill,5363,Bills
+2024-08-27,Flipkart order,2473,Shopping
+2025-03-19,Big Bazaar groceries,2660,Shopping
+2025-07-31,Unknown vendor,1698,Others
+2024-11-14,Internet bill,7287,Bills
+2025-02-23,Train ticket,6921,Travel
+2024-07-26,Dominos pizza,513,Food
+2024-03-01,Mall purchase,2625,Shopping
+2024-09-25,Misc purchase,1846,Others
+2024-02-19,Cafe latte,1475,Food
+2024-12-12,Concert,1309,Entertainment
+2024-04-22,Electricity bill,5465,Bills
+2024-07-06,Train ticket,6472,Travel
+2024-02-08,Phone bill,2797,Bills
+2024-12-28,Uber ride,12200,Travel
+2025-04-21,Amazon purchase,4178,Shopping
+2024-12-04,Electricity bill,7009,Bills
+2024-07-25,Hotel booking,6207,Travel
+2024-04-29,Dominos pizza,1075,Food
+2024-07-08,Streaming subscription,2693,Entertainment
+2024-03-15,Electricity bill,6640,Bills
+2024-07-03,Uber ride,1159,Travel
+2024-07-02,Mall purchase,2266,Shopping
+2025-03-13,Flight booking,16972,Travel
+2024-11-19,Grocery store,4484,Shopping
+2024-05-07,Fuel station,2464,Transport
+2025-02-24,Gas bill,7145,Bills
+2025-07-31,McDonalds order,1415,Food
+2025-07-17,Gaming purchase,371,Entertainment
+2024-10-08,Grocery store,3198,Shopping
+2025-07-29,Amazon purchase,6118,Shopping
+2025-02-14,Hotel booking,6254,Travel
+2024-09-10,Hotel booking,14430,Travel
+2025-05-06,Flipkart order,412,Shopping
+2024-04-13,Auto fare,1526,Transport
+2024-01-02,Grocery store,5839,Shopping
+2024-11-09,Food delivery,131,Food
+2024-03-31,Gas bill,1640,Bills
+2025-08-19,Dominos pizza,777,Food
+2025-07-24,Flipkart order,5064,Shopping
+2025-04-12,Flight booking,4535,Travel
+2024-09-16,Taxi fare,1227,Transport
+2025-02-07,Gas bill,3834,Bills
+2025-05-23,Restaurant bill,1442,Food
+2025-07-22,Taxi fare,132,Transport
+2024-09-11,Amazon purchase,6500,Shopping
+2025-05-20,Water bill,5181,Bills
+2025-06-15,Internet bill,2366,Bills
+2024-08-06,McDonalds order,881,Food
+2024-05-31,Cafe latte,868,Food
+2025-06-04,Electricity bill,2454,Bills
+2024-03-01,Gaming purchase,2258,Entertainment
+2024-02-17,Grocery store,1377,Shopping
+2024-02-22,Restaurant bill,103,Food
+2024-08-12,Movie ticket,696,Entertainment
+2025-06-16,Dominos pizza,622,Food
+2025-01-25,Metro recharge,1680,Transport
+2024-11-05,Dominos pizza,82,Food
+2025-05-04,Donation,3185,Others
+2025-02-23,Uber ride,6807,Travel
+2024-06-17,Streaming subscription,1138,Entertainment
+2024-10-19,Streaming subscription,887,Entertainment
+2024-05-17,Dominos pizza,826,Food
+2024-06-02,Restaurant bill,991,Food
+2024-02-23,Gaming purchase,1473,Entertainment
+2025-05-05,Bus ticket,5096,Travel
+2024-09-25,Streaming subscription,1168,Entertainment
+2024-01-26,Water bill,6300,Bills
+2025-08-12,Amazon purchase,425,Shopping
+2024-10-12,Electricity bill,2549,Bills
+2024-07-08,Unknown vendor,3908,Others
+2024-10-25,Phone bill,6667,Bills
+2024-06-15,Donation,4884,Others
+2024-03-09,Grocery store,5633,Shopping
+2024-09-14,Mall purchase,5765,Shopping
+2025-01-07,Internet bill,4033,Bills
+2024-08-15,Cafe latte,359,Food
+2024-06-23,Gas bill,512,Bills
+2025-08-21,Grocery store,1106,Shopping
+2024-04-19,Big Bazaar groceries,3902,Shopping
+2024-08-05,Restaurant bill,1407,Food
+2025-05-02,Mall purchase,4961,Shopping
+2025-06-30,Train ticket,16879,Travel
+2025-03-09,Phone bill,6955,Bills
+2024-09-28,Subscription,3715,Others
+2024-08-24,Hotel booking,14451,Travel
+2024-10-23,Flipkart order,2532,Shopping
+2024-06-09,Misc purchase,3705,Others
+2024-02-23,Subscription,463,Others
+2025-01-22,Grocery store,4174,Shopping
+2024-03-28,Internet bill,1786,Bills
+2025-07-04,Water bill,5465,Bills
+2024-10-01,Big Bazaar groceries,4708,Shopping
+2024-04-05,Movie ticket,431,Entertainment
+2025-03-20,Grocery store,6390,Shopping
+2024-10-12,Water bill,1138,Bills
+2024-12-02,Auto fare,1893,Transport
+2025-08-22,Auto fare,2565,Transport
+2025-05-25,Electricity bill,3338,Bills
+2024-10-26,McDonalds order,1313,Food
+2024-10-14,Mall purchase,3690,Shopping
+2025-06-22,Restaurant bill,780,Food
+2024-12-07,Big Bazaar groceries,886,Shopping
+2025-03-16,Bus ticket,7791,Travel
+2024-11-05,Metro recharge,1465,Transport
+2024-09-29,Train ticket,17524,Travel
+2024-05-18,Uber ride,19461,Travel
+2024-07-20,Internet bill,5508,Bills
+2024-08-16,Metro recharge,1135,Transport
+2025-06-08,Grocery store,2569,Shopping
+2024-12-29,Gaming purchase,199,Entertainment
+2024-06-16,Subscription,214,Others
+2025-05-21,Cafe latte,288,Food
+2024-09-03,McDonalds order,1218,Food
+2024-02-17,Flipkart order,1660,Shopping
+2025-07-19,Gas bill,6054,Bills
+2024-10-26,McDonalds order,1320,Food
+2025-08-08,McDonalds order,1038,Food
+2024-03-13,Gaming purchase,366,Entertainment
+2025-07-19,Donation,845,Others
+2025-08-20,Dominos pizza,105,Food
+2024-05-09,Concert,274,Entertainment
+2024-09-20,Cafe latte,725,Food
+2025-06-23,Flipkart order,3898,Shopping
+2024-05-20,Metro recharge,1522,Transport
+2024-09-28,Flipkart order,6344,Shopping
+2024-05-23,Movie ticket,2342,Entertainment
+2025-07-20,Flight booking,5199,Travel
+2025-01-21,Concert,285,Entertainment
+2025-04-10,Dominos pizza,952,Food
+2025-06-14,Food delivery,601,Food
+2024-04-01,Restaurant bill,755,Food
+2025-01-08,Big Bazaar groceries,3722,Shopping
+2024-01-26,Flipkart order,1784,Shopping
+2025-07-08,Mall purchase,3257,Shopping
+2024-02-11,Amazon purchase,4182,Shopping
+2025-03-13,Restaurant bill,250,Food
+2024-04-16,Amazon purchase,2655,Shopping
+2024-05-16,Big Bazaar groceries,307,Shopping
+2025-04-19,Concert,2323,Entertainment
+2024-06-19,McDonalds order,1344,Food
+2024-03-14,Water bill,5872,Bills
+2024-09-30,Mall purchase,2726,Shopping
+2024-06-03,Auto fare,24,Transport
+2025-08-01,Donation,3898,Others
+2024-11-29,Flipkart order,3965,Shopping
+2025-04-23,Flight booking,4643,Travel
+2024-04-06,Grocery store,5407,Shopping
+2024-01-11,Amazon purchase,6261,Shopping
+2024-02-08,Flight booking,3758,Travel
+2024-05-28,Flipkart order,598,Shopping
+2025-08-06,Amazon purchase,4771,Shopping
+2024-12-23,Food delivery,1066,Food
+2025-07-24,Fuel station,137,Transport
+2024-11-10,Gas bill,6325,Bills
+2024-12-30,Mall purchase,670,Shopping
+2025-04-23,Taxi fare,1550,Transport
+2024-12-28,Movie ticket,1623,Entertainment
+2025-07-31,Concert,1405,Entertainment
+2025-08-21,Dominos pizza,1325,Food
+2024-07-07,Movie ticket,1932,Entertainment
+2024-09-07,Internet bill,2803,Bills
+2024-05-06,Water bill,463,Bills
+2024-11-23,Water bill,4361,Bills
+2024-04-13,Train ticket,15104,Travel
+2024-11-25,Phone bill,2880,Bills
+2025-03-15,Big Bazaar groceries,1215,Shopping
+2024-05-13,Internet bill,4679,Bills
+2024-04-25,Taxi fare,2509,Transport
+2025-07-02,Fuel station,2873,Transport
+2024-04-09,Flipkart order,3052,Shopping
+2024-12-22,Fuel station,254,Transport
+2025-03-17,Streaming subscription,2229,Entertainment
+2025-06-12,Mall purchase,2885,Shopping
+2024-04-16,Taxi fare,2299,Transport
+2025-05-08,Auto fare,2189,Transport
+2024-02-09,Concert,164,Entertainment
+2025-06-14,McDonalds order,587,Food
+2024-03-09,Electricity bill,664,Bills
+2024-04-17,Train ticket,726,Travel
+2025-03-25,Mall purchase,3172,Shopping
+2024-02-07,Unknown vendor,1608,Others
+2025-06-21,Unknown vendor,4208,Others
+2024-09-25,Big Bazaar groceries,2213,Shopping
+2025-06-15,Big Bazaar groceries,4537,Shopping
+2025-07-26,Phone bill,1275,Bills
+2024-05-02,Uber ride,2195,Travel
+2024-09-20,Concert,2696,Entertainment
+2025-08-19,Unknown vendor,2407,Others
+2024-11-26,Metro recharge,1102,Transport
+2025-07-01,Food delivery,370,Food
+2024-01-06,Mall purchase,2191,Shopping
+2025-01-14,Restaurant bill,1400,Food
+2025-05-31,Flipkart order,5734,Shopping
+2025-02-26,Movie ticket,215,Entertainment
+2025-02-22,Unknown vendor,1820,Others
+2025-01-08,Mall purchase,6630,Shopping
+2025-04-15,Phone bill,7516,Bills
+2024-08-01,Hotel booking,1479,Travel
+2025-04-05,Bus ticket,16367,Travel
+2024-12-27,Internet bill,3710,Bills
+2025-02-24,Fuel station,153,Transport
+2024-02-07,Flipkart order,3108,Shopping
+2024-08-16,Amazon purchase,552,Shopping
+2025-08-23,Fuel station,433,Transport
+2024-05-03,Hotel booking,13713,Travel
+2024-01-02,Big Bazaar groceries,3841,Shopping
+2024-04-24,Flipkart order,373,Shopping
+2024-01-29,McDonalds order,663,Food
+2025-03-15,McDonalds order,146,Food
+2025-03-14,Auto fare,2050,Transport
+2024-07-05,Restaurant bill,679,Food
+2024-01-17,Restaurant bill,129,Food
+2024-01-13,Grocery store,6640,Shopping
+2025-07-05,Streaming subscription,438,Entertainment
+2025-06-29,Taxi fare,530,Transport
+2024-06-14,Grocery store,3821,Shopping
+2024-12-15,Big Bazaar groceries,1216,Shopping
+2024-11-22,Food delivery,147,Food
+2024-02-19,Cafe latte,742,Food
+2024-11-02,Water bill,4332,Bills
+2024-08-03,Hotel booking,3165,Travel
+2024-05-26,Mall purchase,6600,Shopping
+2025-07-30,Streaming subscription,2530,Entertainment
+2025-08-11,Donation,3259,Others
+2024-04-22,Taxi fare,630,Transport
+2025-02-26,Mall purchase,3996,Shopping
+2024-11-01,Gas bill,5691,Bills
+2024-04-16,Donation,692,Others
+2025-08-10,Amazon purchase,1870,Shopping
+2024-05-02,Gaming purchase,1494,Entertainment
+2024-04-23,McDonalds order,823,Food
+2024-04-23,Grocery store,4315,Shopping
+2024-04-16,Taxi fare,2339,Transport
+2025-03-01,Internet bill,6196,Bills
+2024-10-07,Taxi fare,667,Transport
+2024-12-17,Fuel station,567,Transport
+2025-01-27,Bus ticket,12537,Travel
+2024-04-26,Movie ticket,1016,Entertainment
+2025-04-11,Electricity bill,2040,Bills
+2025-06-24,Streaming subscription,2398,Entertainment
+2024-04-21,Restaurant bill,1286,Food
+2024-01-13,Concert,2822,Entertainment
+2024-08-17,Flipkart order,3604,Shopping
+2024-07-18,Electricity bill,6344,Bills
+2024-09-25,Dominos pizza,176,Food
+2024-03-03,Internet bill,4674,Bills
+2024-12-10,Big Bazaar groceries,2701,Shopping
+2025-02-21,Taxi fare,958,Transport
+2024-04-17,Dominos pizza,303,Food
+2025-07-05,Big Bazaar groceries,1112,Shopping
+2025-02-10,Big Bazaar groceries,6642,Shopping
+2024-05-07,Subscription,2712,Others
+2024-09-03,Dominos pizza,635,Food
+2024-11-02,Unknown vendor,3219,Others
+2024-02-29,Grocery store,3317,Shopping
+2024-06-21,Food delivery,891,Food
+2024-03-14,Uber ride,16051,Travel
+2025-08-21,Restaurant bill,120,Food
+2024-01-24,Hotel booking,19022,Travel
+2025-05-31,Flipkart order,577,Shopping
+2025-08-19,Water bill,6496,Bills
+2024-10-14,Train ticket,10728,Travel
+2024-08-03,Big Bazaar groceries,750,Shopping
+2025-02-05,Grocery store,6146,Shopping
+2025-06-01,Restaurant bill,156,Food
+2024-03-04,Cafe latte,1120,Food
+2024-09-01,Food delivery,770,Food
+2024-11-23,Streaming subscription,468,Entertainment
+2025-05-29,Uber ride,14056,Travel
+2024-01-23,Food delivery,224,Food
+2024-02-17,Flipkart order,2538,Shopping
+2025-07-17,Fuel station,1298,Transport
+2024-06-03,Restaurant bill,413,Food
+2025-06-05,Grocery store,1093,Shopping
+2024-01-09,Train ticket,13187,Travel
+2025-06-20,Flipkart order,5450,Shopping
+2024-02-11,Water bill,1289,Bills
+2025-08-08,Metro recharge,1995,Transport
+2024-05-11,Cafe latte,557,Food
+2025-03-08,Grocery store,1224,Shopping
+2025-05-29,Food delivery,1352,Food
+2024-08-07,Gas bill,6083,Bills
+2025-02-11,Fuel station,1404,Transport
+2024-02-22,Auto fare,2241,Transport
+2025-07-06,Cafe latte,1324,Food
+2025-02-17,Gaming purchase,2066,Entertainment
+2025-06-23,Amazon purchase,1242,Shopping
+2024-09-22,Water bill,7218,Bills
+2024-12-28,Grocery store,3301,Shopping
+2025-08-11,Bus ticket,17368,Travel
+2024-06-11,Internet bill,5831,Bills
+2024-09-05,Uber ride,10655,Travel
+2025-01-03,Phone bill,6293,Bills
+2024-12-13,Grocery store,3892,Shopping
+2025-08-23,Flipkart order,2686,Shopping
+2025-06-28,Big Bazaar groceries,6156,Shopping
+2025-02-16,Metro recharge,1083,Transport
+2024-09-01,Internet bill,3934,Bills
+2025-06-07,Flipkart order,2029,Shopping
+2024-06-14,Electricity bill,6319,Bills
+2024-12-05,Food delivery,823,Food
+2025-06-11,McDonalds order,1274,Food
+2025-04-02,Hotel booking,10899,Travel
+2025-03-29,Train ticket,933,Travel
+2024-03-12,Amazon purchase,1016,Shopping
+2024-02-07,Auto fare,1674,Transport
+2024-06-02,Movie ticket,1774,Entertainment
+2025-08-04,Dominos pizza,717,Food
+2025-06-24,Movie ticket,1346,Entertainment
+2024-03-01,Dominos pizza,747,Food
+2025-02-20,Fuel station,468,Transport
+2025-08-07,Movie ticket,578,Entertainment
+2025-06-07,Taxi fare,1216,Transport
+2025-08-13,Amazon purchase,304,Shopping
+2025-07-12,Fuel station,29,Transport
+2025-02-04,Food delivery,969,Food
+2025-05-12,Grocery store,4624,Shopping
+2025-01-21,Big Bazaar groceries,4729,Shopping
+2024-09-17,Phone bill,6779,Bills
+2025-04-22,Food delivery,1156,Food
+2024-08-04,Streaming subscription,1454,Entertainment
+2024-09-22,Movie ticket,1108,Entertainment
+2025-05-08,Water bill,4309,Bills
+2024-03-28,Concert,2056,Entertainment
+2024-01-04,McDonalds order,873,Food
+2025-07-16,Food delivery,378,Food
+2024-12-02,Dominos pizza,418,Food
+2025-06-23,Uber ride,18279,Travel
+2025-03-22,Bus ticket,13880,Travel
+2024-01-31,Internet bill,2130,Bills
+2025-05-22,Food delivery,266,Food
+2025-05-03,Taxi fare,1429,Transport
+2024-11-29,Big Bazaar groceries,5467,Shopping
+2025-01-10,Grocery store,1043,Shopping
+2024-11-13,Big Bazaar groceries,3822,Shopping
+2024-10-20,Uber ride,13072,Travel
+2024-09-17,Cafe latte,556,Food
+2024-09-04,Mall purchase,1800,Shopping
+2025-08-15,Train ticket,5387,Travel
+2024-10-13,Flipkart order,1949,Shopping
+2024-08-22,Taxi fare,2320,Transport
+2025-02-04,McDonalds order,1464,Food
+2024-04-01,Grocery store,6888,Shopping
+2024-08-06,Grocery store,3762,Shopping
+2024-02-05,Big Bazaar groceries,5301,Shopping
+2025-08-18,Streaming subscription,1319,Entertainment
+2024-05-25,Cafe latte,147,Food
+2024-02-18,Electricity bill,5564,Bills
+2024-11-20,Flight booking,16062,Travel
+2024-03-29,Gaming purchase,2295,Entertainment
+2024-05-21,Flipkart order,5442,Shopping
+2024-07-15,Cafe latte,1060,Food
+2025-01-13,Flipkart order,3772,Shopping
+2025-07-05,Mall purchase,673,Shopping
+2025-02-05,Bus ticket,16269,Travel
+2024-06-10,Big Bazaar groceries,1511,Shopping
+2025-03-01,Food delivery,174,Food
+2024-11-12,Phone bill,2305,Bills
+2024-11-24,Concert,1695,Entertainment
+2024-08-02,Uber ride,13147,Travel
+2025-01-19,Electricity bill,401,Bills
+2024-07-19,Cafe latte,70,Food
+2024-10-30,Food delivery,207,Food
+2024-09-12,Mall purchase,4509,Shopping
+2025-03-07,Taxi fare,324,Transport
+2024-06-04,Food delivery,1190,Food
+2025-03-11,Bus ticket,10327,Travel
+2024-09-13,Gaming purchase,1017,Entertainment
+2025-02-05,Hotel booking,16299,Travel
+2024-04-22,Restaurant bill,337,Food
+2024-03-17,Train ticket,15027,Travel
+2025-07-21,Amazon purchase,3748,Shopping
+2024-01-20,Uber ride,18553,Travel
+2024-11-09,McDonalds order,195,Food
+2024-11-18,Unknown vendor,1344,Others
+2024-03-12,Bus ticket,1116,Travel
+2024-03-02,Hotel booking,5288,Travel
+2024-06-09,Electricity bill,1477,Bills
+2024-06-27,Phone bill,2874,Bills
+2024-03-08,Flipkart order,3773,Shopping
+2025-05-03,Uber ride,5748,Travel
+2024-07-16,Bus ticket,11306,Travel
+2025-03-10,Phone bill,6091,Bills
+2024-07-24,Auto fare,1146,Transport
+2025-07-24,Phone bill,3289,Bills
+2024-04-13,Streaming subscription,2183,Entertainment
+2024-05-31,Mall purchase,6911,Shopping
+2024-12-18,Amazon purchase,5718,Shopping
+2024-04-02,Amazon purchase,2854,Shopping
+2024-05-20,Auto fare,2668,Transport
+2024-03-13,Cafe latte,75,Food
+2025-03-07,Grocery store,3797,Shopping
+2024-01-11,McDonalds order,621,Food
+2025-01-04,McDonalds order,1436,Food
+2024-07-07,Mall purchase,1617,Shopping
+2024-08-27,Big Bazaar groceries,2325,Shopping
+2024-03-30,Hotel booking,16098,Travel
+2024-06-28,Mall purchase,4991,Shopping
+2025-07-21,Big Bazaar groceries,3226,Shopping
+2024-07-31,McDonalds order,910,Food
+2025-01-28,Uber ride,6146,Travel
+2025-03-24,Cafe latte,421,Food
+2024-09-01,Electricity bill,1228,Bills
+2025-01-28,Phone bill,5468,Bills
+2024-02-28,Fuel station,302,Transport
+2024-12-14,Food delivery,161,Food
+2025-08-09,Train ticket,18640,Travel
+2024-10-13,Water bill,741,Bills
+2024-04-19,Electricity bill,1423,Bills
+2025-01-07,Misc purchase,289,Others
+2024-03-09,Grocery store,3741,Shopping
+2025-02-26,Flipkart order,2228,Shopping
+2024-01-24,Flipkart order,5472,Shopping
+2025-07-01,Water bill,5498,Bills
+2024-11-27,Restaurant bill,265,Food
+2025-07-07,Subscription,4906,Others
+2025-04-24,Amazon purchase,4613,Shopping
+2025-03-30,Hotel booking,3255,Travel
+2025-04-25,Bus ticket,14946,Travel
+2025-03-11,Concert,1409,Entertainment
+2024-09-06,Phone bill,4453,Bills
+2024-12-17,Flight booking,5473,Travel
+2024-02-16,Streaming subscription,1453,Entertainment
+2024-09-11,Grocery store,6357,Shopping
+2025-01-18,Hotel booking,19564,Travel
+2025-01-04,Restaurant bill,1092,Food
+2024-09-08,Amazon purchase,3171,Shopping
+2024-03-19,Internet bill,7218,Bills
+2024-01-30,Gas bill,7851,Bills
+2024-03-29,Amazon purchase,5736,Shopping
+2024-08-27,Amazon purchase,3613,Shopping
+2025-07-15,Cafe latte,63,Food
+2024-08-25,Metro recharge,1006,Transport
+2025-03-28,Uber ride,1995,Travel
+2024-08-10,Taxi fare,290,Transport
+2025-06-06,Concert,1898,Entertainment
+2025-05-13,Big Bazaar groceries,525,Shopping
+2025-05-20,Restaurant bill,1359,Food
+2025-02-22,Bus ticket,8605,Travel
+2025-06-12,Metro recharge,874,Transport
+2024-12-03,Flipkart order,492,Shopping
+2024-08-11,Mall purchase,5758,Shopping
+2025-08-01,Misc purchase,857,Others
+2025-06-07,Phone bill,7236,Bills
+2024-01-12,Big Bazaar groceries,5005,Shopping
+2025-01-02,Dominos pizza,129,Food
+2024-05-09,Hotel booking,13214,Travel
+2024-10-11,Flipkart order,2473,Shopping
+2025-07-09,Gaming purchase,785,Entertainment
+2025-04-17,Grocery store,2550,Shopping
+2024-11-30,Uber ride,4307,Travel
+2024-11-08,Mall purchase,794,Shopping
+2025-06-16,Water bill,6935,Bills
+2024-09-17,Uber ride,2010,Travel
+2025-02-06,Flipkart order,574,Shopping
+2024-08-14,Restaurant bill,1189,Food
+2024-06-01,Amazon purchase,3609,Shopping
+2024-07-27,Mall purchase,397,Shopping
+2025-05-10,Metro recharge,2316,Transport
+2024-08-18,Phone bill,3622,Bills
+2024-06-23,Cafe latte,1464,Food
+2024-01-07,Misc purchase,1938,Others
+2024-05-20,Grocery store,1471,Shopping
+2024-10-27,Food delivery,78,Food
+2024-01-30,Gas bill,7916,Bills
+2024-11-28,Big Bazaar groceries,440,Shopping
+2024-03-05,Train ticket,11914,Travel
+2024-06-04,Flight booking,4879,Travel
+2025-05-07,Big Bazaar groceries,712,Shopping
+2025-03-08,Amazon purchase,3860,Shopping
+2025-04-13,Unknown vendor,1247,Others
+2025-03-03,Mall purchase,1644,Shopping
+2024-04-16,Mall purchase,4061,Shopping
+2025-01-23,Water bill,7274,Bills
+2025-02-16,Fuel station,821,Transport
+2024-09-12,Dominos pizza,323,Food
+2024-08-23,Movie ticket,225,Entertainment
+2025-02-14,Gas bill,6752,Bills
+2025-07-27,Amazon purchase,603,Shopping
+2024-09-30,Amazon purchase,1049,Shopping
+2024-06-10,Cafe latte,999,Food
+2024-09-29,Streaming subscription,1074,Entertainment
+2024-04-07,Subscription,4646,Others
+2024-06-12,Dominos pizza,1189,Food
+2025-02-04,Fuel station,539,Transport
+2024-10-07,Big Bazaar groceries,4554,Shopping
+2024-11-23,Big Bazaar groceries,462,Shopping
+2025-08-06,Movie ticket,2035,Entertainment
+2024-12-15,McDonalds order,968,Food
+2025-07-26,Food delivery,705,Food
+2024-12-15,Internet bill,4693,Bills
+2024-08-30,Cafe latte,1386,Food
+2024-04-10,Water bill,6575,Bills
+2025-01-02,Train ticket,18936,Travel
+2024-01-18,Gas bill,627,Bills
+2024-12-16,Flipkart order,2707,Shopping
+2024-01-23,Taxi fare,572,Transport
+2024-01-11,Restaurant bill,1009,Food
+2024-12-01,Uber ride,17762,Travel
+2025-02-26,McDonalds order,1351,Food
+2024-05-04,Subscription,625,Others
+2024-08-30,Phone bill,6015,Bills
+2024-02-12,Streaming subscription,2067,Entertainment
+2025-03-05,Phone bill,4172,Bills
+2025-03-15,Electricity bill,4056,Bills
+2024-12-11,Flight booking,2287,Travel
+2024-12-27,Flight booking,15762,Travel
+2024-12-10,Electricity bill,6730,Bills
+2025-01-11,Amazon purchase,6253,Shopping
+2024-09-15,Train ticket,17406,Travel
+2024-12-27,Mall purchase,3439,Shopping
+2025-04-30,Auto fare,2834,Transport
+2025-03-07,Donation,3289,Others
+2025-04-02,Streaming subscription,2999,Entertainment
+2025-02-24,Train ticket,18475,Travel
+2024-04-05,Grocery store,370,Shopping
+2024-01-11,Hotel booking,11473,Travel
+2025-03-12,Flipkart order,4412,Shopping
+2024-01-21,McDonalds order,107,Food
+2024-04-09,Metro recharge,2138,Transport
+2025-08-15,Grocery store,5101,Shopping
+2024-01-16,Mall purchase,1217,Shopping
+2024-04-15,Food delivery,1310,Food
+2024-04-12,Donation,2669,Others
+2024-11-19,McDonalds order,331,Food
+2025-02-18,Mall purchase,2543,Shopping
+2024-12-03,Restaurant bill,550,Food
+2024-06-16,Food delivery,1342,Food
+2024-10-24,Electricity bill,1842,Bills
+2024-04-11,Streaming subscription,2728,Entertainment
+2025-06-21,Water bill,4609,Bills
+2024-07-18,Flipkart order,421,Shopping
+2024-11-09,Flipkart order,5808,Shopping
+2024-03-10,Dominos pizza,516,Food
+2025-06-17,Grocery store,1675,Shopping
+2024-02-07,Amazon purchase,3339,Shopping
+2024-10-31,Uber ride,3347,Travel
+2024-07-18,Gas bill,1747,Bills
+2024-02-24,Restaurant bill,688,Food
+2025-03-01,Big Bazaar groceries,6721,Shopping
+2024-04-11,Electricity bill,4164,Bills
+2024-07-27,Metro recharge,515,Transport
+2024-01-08,Food delivery,1015,Food
+2024-12-30,McDonalds order,764,Food
+2025-04-11,Train ticket,5365,Travel
+2024-02-04,Big Bazaar groceries,4185,Shopping
+2024-08-24,Grocery store,3598,Shopping
+2024-03-21,Amazon purchase,4380,Shopping
+2024-03-30,Fuel station,2443,Transport
+2025-04-20,Big Bazaar groceries,6399,Shopping
+2024-10-08,Train ticket,7528,Travel
+2024-12-08,Dominos pizza,708,Food
+2024-01-05,Concert,1593,Entertainment
+2025-08-06,Gas bill,5276,Bills
+2024-07-19,Metro recharge,2467,Transport
+2025-02-19,Water bill,6759,Bills
+2024-10-26,Dominos pizza,945,Food
+2025-07-09,Subscription,491,Others
+2024-05-01,Phone bill,2346,Bills
+2024-05-26,Auto fare,2641,Transport
+2025-01-13,Restaurant bill,821,Food
+2024-05-24,Amazon purchase,2003,Shopping
+2024-08-20,Cafe latte,58,Food
+2025-07-08,Uber ride,559,Travel
+2025-07-15,Mall purchase,4444,Shopping
+2024-11-10,Internet bill,2336,Bills
+2024-04-28,Flight booking,10042,Travel
+2024-02-01,Subscription,3387,Others
+2024-08-12,Train ticket,5644,Travel
+2024-12-22,Auto fare,1891,Transport
+2025-03-17,Flipkart order,3446,Shopping
+2024-09-27,Taxi fare,1579,Transport
+2024-02-02,Mall purchase,1305,Shopping
+2024-10-13,Uber ride,15945,Travel
+2025-08-21,Uber ride,11323,Travel
+2024-09-22,Fuel station,884,Transport
+2025-05-28,Taxi fare,945,Transport
+2024-08-06,Flipkart order,4403,Shopping
+2025-01-06,Amazon purchase,2757,Shopping
+2025-05-27,Streaming subscription,256,Entertainment
+2025-03-05,Amazon purchase,6718,Shopping
+2024-07-26,Flipkart order,5578,Shopping
+2025-06-22,Electricity bill,7684,Bills
+2025-01-15,Phone bill,3956,Bills
+2024-04-30,Movie ticket,1628,Entertainment
+2025-01-18,Concert,1585,Entertainment
+2024-10-15,Train ticket,10676,Travel
+2025-08-16,Fuel station,2199,Transport
+2025-02-08,Big Bazaar groceries,541,Shopping
+2024-03-03,Dominos pizza,754,Food
+2024-11-27,Uber ride,3985,Travel
+2024-05-21,Electricity bill,2786,Bills
+2024-08-17,Flipkart order,6338,Shopping
+2025-04-07,Dominos pizza,199,Food
+2025-04-08,McDonalds order,1236,Food
+2024-11-04,Subscription,461,Others
+2025-01-06,Amazon purchase,1591,Shopping
+2024-07-17,Grocery store,4816,Shopping
+2024-07-14,Mall purchase,439,Shopping
+2024-06-21,Grocery store,839,Shopping
+2025-03-14,Train ticket,5757,Travel
+2024-08-10,Train ticket,19299,Travel
+2025-04-16,Mall purchase,3601,Shopping
+2024-04-10,Big Bazaar groceries,263,Shopping
+2025-04-11,Restaurant bill,1188,Food
+2024-01-03,Concert,2050,Entertainment
+2024-05-02,Flight booking,11259,Travel
+2024-08-06,Food delivery,1197,Food
+2025-01-25,Taxi fare,1173,Transport
+2024-12-03,Auto fare,1943,Transport
+2025-03-20,Taxi fare,1065,Transport
+2024-02-26,Taxi fare,2000,Transport
+2024-06-23,Flipkart order,2326,Shopping
+2024-09-04,Amazon purchase,2478,Shopping
+2024-06-02,Bus ticket,8229,Travel
+2024-10-20,Water bill,621,Bills
+2025-01-03,Train ticket,2134,Travel
+2024-10-23,Cafe latte,264,Food
+2024-08-03,Flipkart order,3661,Shopping
+2025-01-28,Movie ticket,2557,Entertainment
+2024-04-18,Cafe latte,325,Food
+2025-07-27,Hotel booking,1628,Travel
+2024-07-25,Uber ride,16846,Travel
+2024-12-01,Amazon purchase,4618,Shopping
+2024-05-07,Cafe latte,797,Food
+2024-12-26,McDonalds order,219,Food
+2024-10-29,McDonalds order,623,Food
+2025-01-10,Uber ride,1310,Travel
+2024-01-28,Uber ride,17623,Travel
+2024-04-19,Unknown vendor,3041,Others
+2024-09-04,Streaming subscription,2480,Entertainment
+2024-11-17,Restaurant bill,813,Food
+2024-08-07,Electricity bill,7356,Bills
+2025-08-02,Gas bill,7441,Bills
+2024-09-14,Amazon purchase,3677,Shopping
+2024-01-09,Cafe latte,1197,Food
+2024-11-10,Internet bill,2917,Bills
+2024-04-30,Food delivery,478,Food
+2024-08-03,Metro recharge,1175,Transport
+2025-02-13,Gas bill,1567,Bills
+2025-07-16,Electricity bill,7700,Bills
+2025-06-11,Gaming purchase,1426,Entertainment
+2024-12-13,Big Bazaar groceries,6257,Shopping
+2025-08-01,Water bill,2347,Bills
+2025-04-19,Movie ticket,1271,Entertainment
+2024-09-05,Train ticket,11330,Travel
+2024-04-15,Dominos pizza,602,Food
+2025-07-21,Flipkart order,6316,Shopping
+2024-12-11,Gaming purchase,1753,Entertainment
+2025-04-02,Unknown vendor,3398,Others
+2024-08-08,Phone bill,6126,Bills
+2025-01-08,Metro recharge,893,Transport
+2024-03-18,Bus ticket,9535,Travel
+2024-03-23,Subscription,3237,Others
+2024-12-14,Dominos pizza,983,Food
+2025-01-05,Movie ticket,602,Entertainment
+2024-06-02,Grocery store,3806,Shopping
+2025-06-05,Food delivery,1345,Food
+2024-11-16,Big Bazaar groceries,4578,Shopping
+2024-08-14,Gas bill,2229,Bills
+2025-06-30,Movie ticket,1787,Entertainment
+2024-08-03,Fuel station,722,Transport
+2024-09-10,Mall purchase,5269,Shopping
+2024-11-05,Hotel booking,12391,Travel
+2025-08-14,Uber ride,16953,Travel
+2024-07-23,Taxi fare,1437,Transport
+2024-12-29,Flipkart order,2490,Shopping
+2025-02-24,Amazon purchase,4438,Shopping
+2024-09-24,Dominos pizza,982,Food
+2024-08-16,Food delivery,576,Food
+2025-02-03,Electricity bill,6328,Bills
+2024-05-24,Streaming subscription,1478,Entertainment
+2024-12-04,Water bill,413,Bills
+2024-04-06,Restaurant bill,731,Food
+2024-08-22,Mall purchase,3760,Shopping
+2024-01-10,Big Bazaar groceries,5927,Shopping
+2025-01-29,Taxi fare,526,Transport
+2024-08-10,Phone bill,7734,Bills
+2025-06-21,Fuel station,1204,Transport
+2025-04-08,Mall purchase,1421,Shopping
+2024-05-17,Internet bill,1224,Bills
+2024-05-18,Bus ticket,19844,Travel
+2024-01-29,Taxi fare,1413,Transport
+2024-09-29,Phone bill,6833,Bills
+2024-05-02,Amazon purchase,325,Shopping
+2025-01-21,Misc purchase,4062,Others
+2025-01-21,Taxi fare,2636,Transport
+2025-08-03,Auto fare,752,Transport
+2024-11-08,Bus ticket,5373,Travel
+2024-03-09,Amazon purchase,3189,Shopping
+2024-01-29,Amazon purchase,5232,Shopping
+2025-07-04,Big Bazaar groceries,3174,Shopping
+2025-01-08,Metro recharge,2451,Transport
+2024-02-22,Bus ticket,3587,Travel
+2024-06-09,Auto fare,2439,Transport
+2024-05-11,Food delivery,1193,Food
+2024-07-30,Internet bill,1537,Bills
+2024-12-09,Train ticket,15471,Travel
