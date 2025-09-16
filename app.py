@@ -1,19 +1,11 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-from transformers import pipeline
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
 
 # ---------------------------
-# Load Hugging Face model
-# ---------------------------
-@st.cache_resource
-def load_model():
-    return pipeline("text2text-generation", model="google/flan-t5-small")
-
-qa_model = load_model()
-
-# ---------------------------
-# Helper: Build financial context
+# Lightweight Chatbot
 # ---------------------------
 def build_context(df):
     summary = []
@@ -21,13 +13,18 @@ def build_context(df):
     summary.append(f"Total expenses: {total}")
     for cat, amt in df.groupby("Category")["Amount"].sum().items():
         summary.append(f"Spent {amt} on {cat}")
-    return " | ".join(summary)
+    return summary
 
 def finance_chatbot(query, df):
-    context = build_context(df)
-    input_text = f"Context: {context}\nQuestion: {query}"
-    result = qa_model(input_text, max_length=100, do_sample=False)
-    return result[0]["generated_text"]
+    facts = build_context(df)
+    documents = facts + [query]
+    vectorizer = TfidfVectorizer().fit_transform(documents)
+    vectors = vectorizer.toarray()
+
+    cosine_sim = cosine_similarity([vectors[-1]], vectors[:-1])
+    idx = cosine_sim.argmax()
+
+    return facts[idx]
 
 # ---------------------------
 # Streamlit App
@@ -70,12 +67,15 @@ if uploaded_file:
         with tabs[2]:
             st.header("🔮 Expense Forecasting (Simple)")
 
-            monthly = df.groupby("Date")["Amount"].sum().reset_index()
-            st.line_chart(monthly.set_index("Date"))
+            if "Date" not in df.columns:
+                st.warning("CSV must have a 'Date' column for forecasting.")
+            else:
+                monthly = df.groupby("Date")["Amount"].sum().reset_index()
+                st.line_chart(monthly.set_index("Date"))
 
-            if len(monthly) > 1:
-                avg = monthly["Amount"].mean()
-                st.success(f"📌 Projected next period expense: {round(avg,2)}")
+                if len(monthly) > 1:
+                    avg = monthly["Amount"].mean()
+                    st.success(f"📌 Projected next period expense: {round(avg,2)}")
 
         # ---------------- Chatbot ----------------
         with tabs[3]:
@@ -88,4 +88,3 @@ if uploaded_file:
                 st.success(answer)
 else:
     st.info("⬅️ Please upload a CSV file to begin.")
-
