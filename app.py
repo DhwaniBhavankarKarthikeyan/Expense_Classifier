@@ -1,147 +1,91 @@
 import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
-import joblib
-import os
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.linear_model import LogisticRegression
-from sklearn.ensemble import IsolationForest
-from sklearn.linear_model import LinearRegression
+from transformers import pipeline
 
-# --------------------------
-# Helper Functions
-# --------------------------
+# ---------------------------
+# Load Hugging Face model
+# ---------------------------
+@st.cache_resource
+def load_model():
+    return pipeline("text2text-generation", model="google/flan-t5-small")
 
-def train_models():
-    data = pd.read_csv("data/sample_transactions_labeled.csv")
-    X = data["Description"]
-    y = data["Category"]
+qa_model = load_model()
 
-    vectorizer = TfidfVectorizer()
-    X_vec = vectorizer.fit_transform(X)
+# ---------------------------
+# Helper: Build financial context
+# ---------------------------
+def build_context(df):
+    summary = []
+    total = df["Amount"].sum()
+    summary.append(f"Total expenses: {total}")
+    for cat, amt in df.groupby("Category")["Amount"].sum().items():
+        summary.append(f"Spent {amt} on {cat}")
+    return " | ".join(summary)
 
-    clf = LogisticRegression(max_iter=1000)
-    clf.fit(X_vec, y)
+def finance_chatbot(query, df):
+    context = build_context(df)
+    input_text = f"Context: {context}\nQuestion: {query}"
+    result = qa_model(input_text, max_length=100, do_sample=False)
+    return result[0]["generated_text"]
 
-    os.makedirs("models", exist_ok=True)
-    joblib.dump(vectorizer, "models/vectorizer.pkl")
-    joblib.dump(clf, "models/classifier.pkl")
-
-    iso = IsolationForest(contamination=0.1, random_state=42)
-    iso.fit(data[["Amount"]])
-    joblib.dump(iso, "models/anomaly.pkl")
-
-def load_models():
-    vectorizer = joblib.load("models/vectorizer.pkl")
-    clf = joblib.load("models/classifier.pkl")
-    iso = joblib.load("models/anomaly.pkl")
-    return vectorizer, clf, iso
-
-def classify_data(df, vectorizer, clf, iso):
-    X_new = vectorizer.transform(df["Description"])
-    df["PredictedCategory"] = clf.predict(X_new)
-    df["Anomaly"] = iso.predict(df[["Amount"]])
-    df["Anomaly"] = df["Anomaly"].map({1: "Normal", -1: "Suspicious"})
-    return df
-
-def forecast_expenses(df):
-    df["Date"] = pd.to_datetime(df["Date"])
-    df["Month"] = df["Date"].dt.to_period("M").astype(str)
-    monthly = df.groupby("Month")["Amount"].sum().reset_index()
-
-    monthly["t"] = range(len(monthly))
-    X = monthly[["t"]]
-    y = monthly["Amount"]
-
-    model = LinearRegression()
-    model.fit(X, y)
-
-    next_t = [[len(monthly)]]
-    forecast = model.predict(next_t)[0]
-
-    return monthly, forecast
-
-def chatbot_query(df, query):
-    query = query.lower()
-    response = "Sorry, I couldn’t understand the question."
-
-    if "total" in query:
-        response = f"Your total spending is {df['Amount'].sum():.2f}."
-    elif "food" in query:
-        total = df[df["PredictedCategory"] == "Food"]["Amount"].sum()
-        response = f"Your spending on Food is {total:.2f}."
-    elif "last month" in query:
-        df["Date"] = pd.to_datetime(df["Date"])
-        last_month = df["Date"].dt.to_period("M").max()
-        total = df[df["Date"].dt.to_period("M") == last_month]["Amount"].sum()
-        response = f"Your spending in {last_month} was {total:.2f}."
-    elif "top" in query and "category" in query:
-        top_cat = df.groupby("PredictedCategory")["Amount"].sum().idxmax()
-        response = f"Your top spending category is {top_cat}."
-
-    return response
-
-# --------------------------
+# ---------------------------
 # Streamlit App
-# --------------------------
+# ---------------------------
+st.set_page_config(page_title="FinTech Expense Classifier", layout="wide")
+st.title("💰 FinTech AI Application")
 
-st.set_page_config(page_title="AI FinTech Expense Classifier", layout="wide")
-st.title("💸 AI FinTech Expense Classifier")
-
-# Sidebar Upload (only once)
-uploaded_file = st.sidebar.file_uploader("Upload your transactions CSV", type=["csv"])
-
-# Train models once (if not already trained)
-if not os.path.exists("models/classifier.pkl"):
-    train_models()
+# Sidebar upload (only once)
+uploaded_file = st.sidebar.file_uploader("📂 Upload your transactions CSV", type=["csv"])
 
 if uploaded_file:
     df = pd.read_csv(uploaded_file)
-    vectorizer, clf, iso = load_models()
-    df = classify_data(df, vectorizer, clf, iso)
-    st.session_state["classified_data"] = df
 
-# Tabs
-tab1, tab2, tab3, tab4 = st.tabs(["🧾 Data", "📊 Visualization", "📈 Forecast", "🤖 Chatbot"])
-
-with tab1:
-    st.header("🧾 Classified Transactions")
-    if "classified_data" in st.session_state:
-        st.dataframe(st.session_state["classified_data"].head())
+    # Ensure expected columns exist
+    if "Amount" not in df.columns or "Category" not in df.columns:
+        st.error("CSV must contain at least 'Amount' and 'Category' columns.")
     else:
-        st.info("Upload a CSV file to see classified transactions.")
+        st.sidebar.success("✅ Data uploaded successfully!")
 
-with tab2:
-    st.header("📊 Visualization & Anomalies")
-    if "classified_data" in st.session_state:
-        df = st.session_state["classified_data"]
+        # Tabs
+        tabs = st.tabs(["📊 Classification", "📈 Visualization", "🔮 Forecasting", "🤖 Chatbot"])
 
-        fig, ax = plt.subplots()
-        df["PredictedCategory"].value_counts().plot.pie(autopct="%1.1f%%", ax=ax)
-        st.pyplot(fig)
+        # ---------------- Classification ----------------
+        with tabs[0]:
+            st.header("📊 Expense Classification")
+            st.write(df.head())
 
-        st.subheader("🚨 Suspicious Transactions")
-        st.dataframe(df[df["Anomaly"] == "Suspicious"])
-    else:
-        st.info("Upload a CSV first.")
+            category_totals = df.groupby("Category")["Amount"].sum()
+            st.bar_chart(category_totals)
 
-with tab3:
-    st.header("📈 Expense Forecast")
-    if "classified_data" in st.session_state:
-        df = st.session_state["classified_data"]
-        monthly, forecast = forecast_expenses(df)
+        # ---------------- Visualization ----------------
+        with tabs[1]:
+            st.header("📈 Expense Visualization")
 
-        st.line_chart(monthly.set_index("Month")["Amount"])
-        st.success(f"Predicted spending for next month: {forecast:.2f}")
-    else:
-        st.info("Upload a CSV first.")
+            fig, ax = plt.subplots()
+            df.groupby("Category")["Amount"].sum().plot(kind="pie", autopct="%1.1f%%", ax=ax)
+            st.pyplot(fig)
 
-with tab4:
-    st.header("🤖 Finance Chatbot")
-    if "classified_data" in st.session_state:
-        df = st.session_state["classified_data"]
-        query = st.text_input("Ask me about your expenses:")
-        if query:
-            st.write("💬", chatbot_query(df, query))
-    else:
-        st.info("Upload a CSV first.")
+        # ---------------- Forecasting ----------------
+        with tabs[2]:
+            st.header("🔮 Expense Forecasting (Simple)")
+
+            monthly = df.groupby("Date")["Amount"].sum().reset_index()
+            st.line_chart(monthly.set_index("Date"))
+
+            if len(monthly) > 1:
+                avg = monthly["Amount"].mean()
+                st.success(f"📌 Projected next period expense: {round(avg,2)}")
+
+        # ---------------- Chatbot ----------------
+        with tabs[3]:
+            st.header("🤖 Finance Chatbot")
+            st.write("Ask me about your expenses (e.g., *total expense, food spending, travel costs*)")
+
+            user_query = st.text_input("💬 Your question:")
+            if user_query:
+                answer = finance_chatbot(user_query, df)
+                st.success(answer)
+else:
+    st.info("⬅️ Please upload a CSV file to begin.")
+
