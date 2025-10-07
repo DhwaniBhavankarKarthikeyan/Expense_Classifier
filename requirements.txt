@@ -9,3 +9,10 @@ pandas
 matplotlib
 transformers
 torch
+requests
+yfinance
+openai
+streamlit
+beautifulsoup4
+plotly
+google-genai
