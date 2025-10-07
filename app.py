@@ -100,11 +100,25 @@ if uploaded_file:
             st.bar_chart(category_totals)
 
         # ---------------- Visualization ----------------
+        # ---------------- Visualization ----------------
         with tabs[1]:
             st.header("📈 Expense Visualization")
+            category_totals = df.groupby("Category")["Amount"].sum()
+            total_amount = category_totals.sum()
+            
+            # Combine categories below 3% into 'Other'
+            threshold = 0.03  # 3%
+            large_categories = category_totals[category_totals / total_amount > threshold]
+            small_categories = category_totals[category_totals / total_amount <= threshold]
+            
+            if not small_categories.empty:
+                large_categories["Other"] = small_categories.sum()
+            
             fig, ax = plt.subplots()
-            df.groupby("Category")["Amount"].sum().plot(kind="pie", autopct="%1.1f%%", ax=ax)
+            large_categories.plot(kind="pie", autopct="%1.1f%%", ax=ax, startangle=90)
+            ax.set_ylabel("")  # remove y-label for better visuals
             st.pyplot(fig)
+
 
         # ---------------- Forecasting ----------------
         with tabs[2]:
