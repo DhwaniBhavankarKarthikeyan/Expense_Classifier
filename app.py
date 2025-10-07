@@ -3,13 +3,36 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # ---------------------------
+# Dynamic category mapping
+# ---------------------------
+# Minimal keywords for generalization
+CATEGORY_KEYWORDS = {
+    "Travel": ["bus", "train", "uber", "cab", "flight", "metro", "taxi"],
+    "Entertainment": ["netflix", "prime", "spotify", "movie", "cinema", "theater", "concert"],
+    "Food": ["domino", "pizza", "restaurant", "groceries", "mcdonald", "kfc", "cafe"],
+    "Shopping": ["amazon", "flipkart", "mall", "shopping", "store", "clothes", "apparel"],
+}
+
+def map_to_category(item):
+    item_lower = str(item).lower()
+    for cat, keywords in CATEGORY_KEYWORDS.items():
+        if any(k in item_lower for k in keywords):
+            return cat
+    return "Other"
+
+def apply_dynamic_categories(df):
+    # Create a standardized category column
+    df['Category_Std'] = df['Category'].apply(map_to_category)
+    return df
+
+# ---------------------------
 # Finance Q&A
 # ---------------------------
 def get_total_expense(df):
     return f"Your total expense is {df['Amount'].sum():.2f}"
 
 def get_category_expense(df, category):
-    total = df[df['Category'] == category]['Amount'].sum()
+    total = df[df['Category_Std'] == category]['Amount'].sum()
     return f"You spent {total:.2f} on {category}"
 
 def get_average_expense(df):
@@ -18,26 +41,26 @@ def get_average_expense(df):
 def get_max_expense(df):
     idx = df['Amount'].idxmax()
     row = df.loc[idx]
-    return f"Your largest expense is {row['Amount']:.2f} in category {row['Category']}"
+    return f"Your largest expense is {row['Amount']:.2f} in category {row['Category_Std']}"
 
 def get_min_expense(df):
     idx = df['Amount'].idxmin()
     row = df.loc[idx]
-    return f"Your smallest expense is {row['Amount']:.2f} in category {row['Category']}"
+    return f"Your smallest expense is {row['Amount']:.2f} in category {row['Category_Std']}"
 
 def get_category_percentage(df, category):
     total = df['Amount'].sum()
-    cat_total = df[df['Category'] == category]['Amount'].sum()
+    cat_total = df[df['Category_Std'] == category]['Amount'].sum()
     percent = (cat_total / total * 100) if total else 0
     return f"{category} makes up {percent:.1f}% of your total expenses"
 
 def get_most_expensive_category(df):
-    totals = df.groupby('Category')['Amount'].sum()
+    totals = df.groupby('Category_Std')['Amount'].sum()
     cat = totals.idxmax()
     return f"The category with the highest total expense is {cat} ({totals[cat]:.2f})"
 
 def get_least_expensive_category(df):
-    totals = df.groupby('Category')['Amount'].sum()
+    totals = df.groupby('Category_Std')['Amount'].sum()
     cat = totals.idxmin()
     return f"The category with the lowest total expense is {cat} ({totals[cat]:.2f})"
 
@@ -45,11 +68,11 @@ def get_transaction_count(df):
     return f"You have {len(df)} transactions in total"
 
 def get_category_count(df):
-    return f"You have {df['Category'].nunique()} different categories"
+    return f"You have {df['Category_Std'].nunique()} different categories"
 
 def get_average_category_expense(df, category):
-    cat_total = df[df['Category'] == category]['Amount'].sum()
-    count = len(df[df['Category'] == category])
+    cat_total = df[df['Category_Std'] == category]['Amount'].sum()
+    count = len(df[df['Category_Std'] == category])
     avg = cat_total / count if count else 0
     return f"Average expense in {category} is {avg:.2f}"
 
@@ -88,6 +111,9 @@ if uploaded_file:
         st.error("CSV must contain at least 'Amount' and 'Category' columns.")
     else:
         st.sidebar.success("✅ Data uploaded successfully!")
+        
+        # Apply dynamic category mapping
+        df = apply_dynamic_categories(df)
 
         # Tabs
         tabs = st.tabs(["📊 Classification", "📈 Visualization", "🔮 Forecasting", "🤖 Finance Q&A"])
@@ -96,14 +122,13 @@ if uploaded_file:
         with tabs[0]:
             st.header("📊 Expense Classification")
             st.write(df.head())
-            category_totals = df.groupby("Category")["Amount"].sum()
+            category_totals = df.groupby("Category_Std")["Amount"].sum()
             st.bar_chart(category_totals)
 
         # ---------------- Visualization ----------------
-        # ---------------- Visualization ----------------
         with tabs[1]:
             st.header("📈 Expense Visualization")
-            category_totals = df.groupby("Category")["Amount"].sum()
+            category_totals = df.groupby("Category_Std")["Amount"].sum()
             total_amount = category_totals.sum()
             
             # Combine categories below 3% into 'Other'
@@ -118,7 +143,6 @@ if uploaded_file:
             large_categories.plot(kind="pie", autopct="%1.1f%%", ax=ax, startangle=90)
             ax.set_ylabel("")  # remove y-label for better visuals
             st.pyplot(fig)
-
 
         # ---------------- Forecasting ----------------
         with tabs[2]:
